@@ -1,0 +1,24 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.env/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Python dependency files
+*.egg-info/
+
+#Others
+~$*
