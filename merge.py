@@ -60,12 +60,12 @@ def extract_presentation(source: str, output_dir="./output"):
                     if run.font.bold and not song_started:
                         first_song_slide_text = full_slide_text.strip()
                         prs_title = re.sub(r"[^\w\d]+", "_", first_song_slide_text)
-                        prs_title = prs_title[:50]  # limit filename length
+                        prs_title = prs_title[:50]
                         output_file = Presentation()
                         if output_file.slides:
                             output_file.slides.remove(output_file.slides[0])
                         song_started = True
-                        print(f"🎵 Starting new song: {prs_title}")
+                        print(f"Starting new song: {prs_title}")
 
                     if song_started and raw_text:
                         slide_text += raw_text + "\n"
@@ -79,7 +79,7 @@ def extract_presentation(source: str, output_dir="./output"):
         if end_of_song_detected and output_file:
             filename = f"{output_dir}/{prs_title}.pptx"
             output_file.save(filename)
-            print(f"✅ Saved: {filename}")
+            print(f"Saved: {filename}")
             output_file = None
             prs_title = None
             song_started = False
