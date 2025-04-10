@@ -2,7 +2,7 @@
 
 ## Merge Functionality
 
-The `merge.py` script processes PowerPoint presentations (`.pptx`) to extract specific slides and save them as new presentations. It identifies sections of a presentation based on bold text and hyperlinks, treating these as markers for the start and end of a "song" or section.
+The `main.py` script processes PowerPoint presentations (`.pptx`) to extract specific slides and save them as new presentations. It identifies sections of a presentation based on bold text and hyperlinks, treating these as markers for the start and end of a "song" or section.
 
 ### Features
 - Extracts slides containing specific text patterns.
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 1. Place the source PowerPoint file (`source.pptx`) in the same directory as `merge.py`.
 2. Run the script:
    ```bash
-   python merge.py
+   python main.py
    ```
 3. Extracted presentations will be saved in the `./output` directory.
 
