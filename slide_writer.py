@@ -8,7 +8,7 @@ def create_new_presentation(source_presentation):
     new_prs.slide_height = source_presentation.slide_height
     return new_prs
 
-def add_slide_with_text(prs, text, horizontal_padding=Inches(1)):
+def add_slide_with_text(prs, text, horizontal_padding=Inches(1), bold = False):
     blank_layout = prs.slide_layouts[6]
     slide = prs.slides.add_slide(blank_layout)
 
@@ -27,4 +27,8 @@ def add_slide_with_text(prs, text, horizontal_padding=Inches(1)):
 
     run = paragraph.add_run()
     run.text = text.strip()
-    run.font.size = Pt(65)
+    
+    font = run.font
+    font.size = Pt(55)
+    if bold:
+        font.bold = True

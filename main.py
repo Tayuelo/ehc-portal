@@ -1,7 +1,7 @@
 from pptx import Presentation
 import os, re
 
-from slide_reader import get_slide_text, get_slide_type
+from slide_reader import get_slide_text_extractor, get_slide_type
 from slide_writer import add_slide_with_text, create_new_presentation
 
 def main():
@@ -12,10 +12,10 @@ def main():
     output_file = None
     output_file_title = None
 
-    for i in range(2, len(source_presentation.slides) - 1):
+    for i in range(2, len(source_presentation.slides)):
         slide = source_presentation.slides[i]
         should_save_prs = False
-        slide_text = get_slide_text(slide)
+        slide_text = get_slide_text_extractor(slide)
         slide_type = get_slide_type(slide)
 
         if slide_type == "FIRST":

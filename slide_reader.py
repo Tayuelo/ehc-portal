@@ -11,10 +11,19 @@ def get_slide_type(slide):
             return "LAST"
     return "REGULAR"
 
-def get_slide_text(slide):
+def get_slide_text_merger(slide):
     paragraphs = get_slide_paragraphs(slide.shapes)
     runs = get_slide_runs(paragraphs)
 
+    text = " ".join(run.text.strip() for run in runs).replace("  ", " ")
+    first_slash_index = text.find("//")
+    if first_slash_index != -1:
+        text = text[:first_slash_index] + "\n//" + text[first_slash_index + 2:]
+    return text
+
+def get_slide_text_extractor(slide):
+    paragraphs = get_slide_paragraphs(slide.shapes)
+    runs = get_slide_runs(paragraphs)
     return " ".join(run.text.strip() for run in runs).replace("  ", " ")
 
 def get_slide_paragraphs(shapes):
